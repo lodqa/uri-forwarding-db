@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Matchers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uri pattern</th>
+      <th>Url replacement pattern</th>
+      <th>Name</th>
+      <th>Priority</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matchers.each do |matcher| %>
+      <tr>
+        <td><%= matcher.uri_pattern %></td>
+        <td><%= matcher.url_replacement_pattern %></td>
+        <td><%= matcher.name %></td>
+        <td><%= matcher.priority %></td>
+        <td><%= link_to 'Show', matcher %></td>
+        <td><%= link_to 'Edit', edit_matcher_path(matcher) %></td>
+        <td><%= link_to 'Destroy', matcher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Matcher', new_matcher_path %>

@@ -1,0 +1,37 @@
+<%= form_with(model: matcher, local: true) do |form| %>
+  <% if matcher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(matcher.errors.count, "error") %> prohibited this matcher from being saved:</h2>
+
+      <ul>
+      <% matcher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uri_pattern %>
+    <%= form.text_field :uri_pattern, id: :matcher_uri_pattern %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url_replacement_pattern %>
+    <%= form.text_field :url_replacement_pattern, id: :matcher_url_replacement_pattern %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :matcher_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.number_field :priority, id: :matcher_priority %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

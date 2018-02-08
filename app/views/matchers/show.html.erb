@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uri pattern:</strong>
+  <%= @matcher.uri_pattern %>
+</p>
+
+<p>
+  <strong>Url replacement pattern:</strong>
+  <%= @matcher.url_replacement_pattern %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @matcher.name %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @matcher.priority %>
+</p>
+
+<%= link_to 'Edit', edit_matcher_path(@matcher) %> |
+<%= link_to 'Back', matchers_path %>
+
+<p>
+  sample
+  <a href="http://localhost/url/translate?query=http%3a%2f%2fwww4%2ewiwiss%2efu-berlin%2ede%2fdiseasome%2fresource%2fgenes%2fEDNRB" target="_blank">http://www4.wiwiss.fu-berlin.de/diseasome/resource/genes/EDNRB</a>
+</p>
