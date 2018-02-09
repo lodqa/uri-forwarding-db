@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirement
+* Ruby version 2.5
+* Ruby on Rails version 5.1.4
 
-Things you may want to cover:
+### Database initialization
 
-* Ruby version
+```
+bundle exec rails db:migrate
+bundle exec rails db:seed
+```
 
-* System dependencies
+### Start the server
 
-* Configuration
+```
+bundle exec rails s -b 0.0.0.0
+```
 
-* Database creation
+open http://localhost:3000
 
-* Database initialization
+### Use the Docker
 
-* How to run the test suite
+How to launch this application with Docker.
+Dockerfile already exists.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker build -t temp .
+docker run --rm -it -v (pwd):/myapp -p 80:3000 temp /bin/bash
+```
 
-* Deployment instructions
+And follow the instructions above to start the server.
 
-* ...
+open http://localhost
