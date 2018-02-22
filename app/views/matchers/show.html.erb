@@ -1,27 +1,31 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uri pattern:</strong>
-  <%= @matcher.uri_pattern %>
-</p>
+<h1>Matcher</h1>
+
+<dl class="matcher">
+  <div class="cat">
+    <dt>Uri pattern</dt>
+    <dd><%= @matcher.uri_pattern %></dd>
+  </div>
+  <div class="cat">
+    <dt>Url replacement pattern</dt>
+    <dd><%= @matcher.url_replacement_pattern %></dd>
+  </div>
+  <div class="cat">
+    <dt>Name</dt>
+    <dd><%= @matcher.name %></dd>
+  </div>
+  <div class="cat">
+    <dt>Priority</dt>
+    <dd><%= @matcher.priority %></dd>
+  </div>
+</dl>
 
 <p>
-  <strong>Url replacement pattern:</strong>
-  <%= @matcher.url_replacement_pattern %>
+  <%= link_to 'Edit', edit_matcher_path(@matcher) %> |
+  <%= link_to 'Back', matchers_path %>
 </p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @matcher.name %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @matcher.priority %>
-</p>
-
-<%= link_to 'Edit', edit_matcher_path(@matcher) %> |
-<%= link_to 'Back', matchers_path %>
 
 <p>
   sample

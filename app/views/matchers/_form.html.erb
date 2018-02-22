@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :uri_pattern %>
-    <%= form.text_field :uri_pattern, id: :matcher_uri_pattern %>
+    <%= form.text_field :uri_pattern, id: :matcher_uri_pattern, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :url_replacement_pattern %>
-    <%= form.text_field :url_replacement_pattern, id: :matcher_url_replacement_pattern %>
+    <%= form.text_field :url_replacement_pattern, id: :matcher_url_replacement_pattern, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :matcher_name %>
+    <%= form.text_field :name, id: :matcher_name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :priority %>
-    <%= form.number_field :priority, id: :matcher_priority %>
+    <%= form.number_field :priority, id: :matcher_priority, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
