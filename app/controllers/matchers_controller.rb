@@ -4,7 +4,7 @@ class MatchersController < ApplicationController
   # GET /matchers
   # GET /matchers.json
   def index
-    @matchers = Matcher.all
+    @matchers = initialize_grid Matcher
   end
 
   # GET /matchers/1

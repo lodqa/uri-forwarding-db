@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'wice_grid', git: 'https://github.com/patricklindsay/wice_grid.git', tag: 'v4.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -2,32 +2,14 @@
 
 <h1>Matchers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Uri pattern</th>
-      <th>Url replacement pattern</th>
-      <th>Name</th>
-      <th>Priority</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @matchers.each do |matcher| %>
-      <tr>
-        <td><%= matcher.uri_pattern %></td>
-        <td><%= matcher.url_replacement_pattern %></td>
-        <td><%= matcher.name %></td>
-        <td><%= matcher.priority %></td>
-        <td><%= link_to 'Show', matcher %></td>
-        <td><%= link_to 'Edit', edit_matcher_path(matcher) %></td>
-        <td><%= link_to 'Destroy', matcher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= grid(@matchers) do |g|
+  g.column name: 'Uri pattern', attribute: 'uri_pattern'
+  g.column name: 'Url replacement pattern', attribute: 'url_replacement_pattern'
+  g.column name: 'Name', attribute: 'name'
+  g.column name: 'Priority', attribute: 'priority'
+  g.column { |m| link_to 'Show', m }
+  g.column { |m| link_to 'Edit', edit_matcher_path(m) }
+  g.column { |m| link_to 'Destroy', m, method: :delete, data: { confirm: 'Are you sure?' } }
+end -%>
 
 <%= link_to 'New Matcher', new_matcher_path %>
