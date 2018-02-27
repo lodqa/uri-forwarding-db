@@ -27,8 +27,8 @@ How to launch this application with Docker.
 Dockerfile already exists.
 
 ```sh
-docker build -t temp .
-docker run --rm -it -v (pwd):/myapp -p 80:3000 temp /bin/bash
+docker-comose build
+docker-compose run --service-ports web bash
 ```
 
 And follow the instructions above to start the server.
