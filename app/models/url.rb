@@ -1,8 +1,15 @@
 class Url
   include GetCommand
+  include PrepareRender
   include Render
 
   attr_reader :error
+
+  def do_process
+    self.do_get_command
+        .do_prepare_render
+        .do_render
+  end
 
   def to_success
     {

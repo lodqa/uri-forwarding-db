@@ -7,7 +7,7 @@ module Render
 
   def do_render
     post_process do
-      @data[:rendering] = render @data[:url], @matcher.xpath_to_image
+      @data[:rendering] = render @data[:image_url], @matcher.xpath_to_image
       @data
     end
   end

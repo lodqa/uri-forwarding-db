@@ -9,8 +9,7 @@ class Matcher < ApplicationRecord
     # Replace a query uri to URLs
     def replace query
       result = urls_for(query)
-        .map(&:do_get_command)
-        .map(&:do_render)
+        .map(&:do_process)
         .reduce(results:[], errors: []) { |body, url| format_result body, url }
 
       result[:input_uri] = query

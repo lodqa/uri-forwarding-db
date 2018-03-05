@@ -69,6 +69,6 @@ class MatchersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def matcher_params
-      params.require(:matcher).permit(:uri_pattern, :url_replacement_pattern, :xpath_to_image, :name, :priority)
+      params.require(:matcher).permit(:uri_pattern, :url_replacement_pattern, :url_replacement_pattern_for_image, :xpath_to_image, :name, :priority)
     end
 end

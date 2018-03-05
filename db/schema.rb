@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305052729) do
+ActiveRecord::Schema.define(version: 20180305082844) do
 
   create_table "matchers", force: :cascade do |t|
     t.string "uri_pattern", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180305052729) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "xpath_to_image", default: "", null: false
+    t.string "url_replacement_pattern_for_image", default: "", null: false
   end
 
 end
