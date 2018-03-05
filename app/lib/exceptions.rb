@@ -1,5 +1,5 @@
 module Exceptions
-  class GetCommandError < StandardError
+  class PostProcessError < StandardError
     attr_reader :url
 
     def initialize url, e
@@ -7,4 +7,7 @@ module Exceptions
       @url = url
     end
   end
+
+  class GetCommandError < PostProcessError; end
+  class RenderingError < PostProcessError; end
 end
