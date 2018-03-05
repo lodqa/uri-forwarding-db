@@ -1,4 +1,6 @@
 class Matcher < ApplicationRecord
+  after_initialize :set_priority_default
+
   validates :uri_pattern, presence: true, regex: true
   validates :url_replacement_pattern, presence: true
   validates :name, presence: true
@@ -32,6 +34,14 @@ class Matcher < ApplicationRecord
       end
 
       body
+    end
+  end
+
+  private
+
+  def set_priority_default
+    if self.new_record? && self.priority.nil?
+      self.priority = 0
     end
   end
 end
