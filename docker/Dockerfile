@@ -24,3 +24,8 @@ COPY Gemfile.lock /myapp
 RUN gem install bundler
 RUN bundle config build.nokogiri --use-system-libraries && \
     bundle install --jobs=4 --retry=10 --clean
+
+COPY docker/docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
