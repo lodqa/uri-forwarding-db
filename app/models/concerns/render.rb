@@ -25,7 +25,7 @@ module Render
 
     doc = Nokogiri::HTML.parse res.body
     node = doc.at_xpath xpath_to_image
-    { url: node['src'], title: node['title'] || node['alt'] } if node
+    { url: URI.join(url, node['src']), title: node['title'] || node['alt'] } if node
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new url, e
     [err, m, url]
