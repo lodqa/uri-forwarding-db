@@ -14,7 +14,7 @@ class Url
   def to_success
     {
       name: @matcher.name,
-      forwading: {
+      forwarding: {
         url: @data[:url],
       },
       rendering: @data[:rendering],
