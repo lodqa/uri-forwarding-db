@@ -21,7 +21,9 @@ module Render
     req = Net::HTTP::Get.new(url)
     # http://www.genecards.org/ requires something to the 'User-Agante' header.
     req['User-Agent'] = 'something'
-    res = Net::HTTP.start(url.hostname, url.port) { |http| http.request(req) }
+    http = Net::HTTP.new(url.hostname, url.port)
+    http.use_ssl = (url.scheme == "https")
+    res = http.request(req)
 
     doc = Nokogiri::HTML.parse res.body
     node = doc.at_xpath xpath_to_image
