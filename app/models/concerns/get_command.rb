@@ -29,9 +29,8 @@ module GetCommand
   def replace_by_http_get str
     matched = CAPTHABLE_REGEXP.match str
     url = URI.parse(matched[1])
-    res = Net::HTTP.get(url).chomp
+    res = URI.encode(Net::HTTP.get(url).chomp)
     str.sub(TOTAL_REGEXP, res)
-
   rescue SocketError => e
     raise ::Exceptions::GetCommandError.new url, e
   end
