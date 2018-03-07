@@ -1,5 +1,5 @@
 require 'net/http'
-require 'kaminari'
+require 'nokogiri'
 
 module Render
   extend ActiveSupport::Concern
