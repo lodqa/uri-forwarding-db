@@ -12,35 +12,36 @@ class Rendering
     def parse_node node
       case node&.name
       when 'img'
-        new node['src'], 'image/*', node['title'] || node['alt']
+        new url: node['src'], mime_type: 'image/*', title: node['title'] || node['alt']
       when 'audio'
         parse_media_tag node, 'audio'
       when 'video'
         parse_media_tag node, 'video'
+      else
+        new text: node.text.strip, mime_type: 'text/plain'
       end
     end
 
     def parse_media_tag node, media
       src = node.children.find{ |n|n.name == 'source' }
       if src
-        new src['src'], src['type'] || "#{media}/*"
+        new url: src['src'], mime_type: src['type'] || "#{media}/*"
       else
-        new node['src'], "#{media}/*"
+        new url: node['src'], mime_type: "#{media}/*"
       end
     end
   end
 
-  def initialize(url, mime_type, title = '')
-    @url = url
-    @mime_type = mime_type
-    @title = title
+  def initialize(hash = {})
+    @hash = hash
   end
 
   def to_absolute_url url
-    self.class.new URI.join(url, @url), @mime_type, @title
+    return self unless @hash[:url]
+    self.class.new self.to_hash.merge(url: URI.join(url, @hash[:url]))
   end
 
   def to_hash
-    { url: @url, mime_type: @mime_type, title: @title }
+    @hash
   end
 end
