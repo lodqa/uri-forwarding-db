@@ -18,12 +18,7 @@ module Render
     return nil if xpath_to_image.blank?
 
     url = URI.parse(url)
-    req = Net::HTTP::Get.new(url)
-    # http://www.genecards.org/ requires something to the 'User-Agante' header.
-    req['User-Agent'] = 'something'
-    http = Net::HTTP.new(url.hostname, url.port)
-    http.use_ssl = (url.scheme == "https")
-    res = http.request(req)
+    res = get url
 
     doc = Nokogiri::HTML.parse res.body
     node = doc.at_xpath xpath_to_image
@@ -31,5 +26,21 @@ module Render
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new url, e
     [err, m, url]
+  end
+
+  def get url
+    req = Net::HTTP::Get.new(url)
+    # http://www.genecards.org/ requires something to the 'User-Agante' header.
+    req['User-Agent'] = 'something'
+    http = Net::HTTP.new(url.hostname, url.port)
+    http.use_ssl = (url.scheme == "https")
+    response = http.request(req)
+
+    # The www.genecards.org may return redirect response.
+    # For example: http://www.genecards.org/cgi-bin/carddisp.pl?gene=ABCDS
+    case response
+    when Net::HTTPSuccess     then response
+    when Net::HTTPRedirection then get URI.join(url, response['location'])
+    end
   end
 end
