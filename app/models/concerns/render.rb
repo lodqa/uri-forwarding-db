@@ -7,21 +7,22 @@ module Render
 
   def do_render
     post_process do
-      @data[:rendering] = render @data[:image_url], @matcher.xpath_to_image
+      @data[:rendering] = render @data[:image_url], @matcher.xpath_to_media
       @data
     end
   end
 
   private
 
-  def render url, xpath_to_image
-    return nil if xpath_to_image.blank?
+  def render url, xpath_to_media
+    return nil if xpath_to_media.blank?
 
     url = URI.parse(url)
     res = get url
 
     doc = Nokogiri::HTML.parse res.body
-    node = doc.at_xpath xpath_to_image
+    node = doc.at_xpath xpath_to_media
+
     { url: URI.join(url, node['src']), title: node['title'] || node['alt'] } if node
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new url, e
