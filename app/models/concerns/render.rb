@@ -20,20 +20,10 @@ module Render
     url = URI.parse(url)
     res = get url
 
-    doc = Nokogiri::HTML.parse res.body
-    node = doc.at_xpath xpath_to_media
-
-    case node&.name
-    when 'img'
-      { url: URI.join(url, node['src']), title: node['title'] || node['alt'], mime_type: 'image/*' }
-    when 'audio'
-      src = node.children.find{ |n|n.name == 'source' }
-      if src
-        { url: URI.join(url, src['src']), mime_type: src['type'] || 'audio/*' }
-      else
-        { url: URI.join(url, node['src']), mime_type: 'audio/*' }
-      end
-    end
+    Rendering
+      .from(res.body, xpath_to_media)
+      &.to_absolute_url(url)
+      &.to_hash
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new url, e
     [err, m, url]
