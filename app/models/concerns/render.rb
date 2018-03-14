@@ -23,7 +23,17 @@ module Render
     doc = Nokogiri::HTML.parse res.body
     node = doc.at_xpath xpath_to_media
 
-    { url: URI.join(url, node['src']), title: node['title'] || node['alt'], mime_type: 'image/*' } if node&.name == 'img'
+    case node&.name
+    when 'img'
+      { url: URI.join(url, node['src']), title: node['title'] || node['alt'], mime_type: 'image/*' }
+    when 'audio'
+      src = node.children.find{ |n|n.name == 'source' }
+      if src
+        { url: URI.join(url, src['src']), mime_type: src['type'] || 'audio/*' }
+      else
+        { url: URI.join(url, node['src']), mime_type: 'audio/*' }
+      end
+    end
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new url, e
     [err, m, url]
