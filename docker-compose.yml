@@ -6,9 +6,7 @@ services:
       - ./docker/stub-nginx-files:/usr/share/nginx/html:ro
 
   web:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
+    build: .
     ports:
       - 8080:3000
     volumes:
