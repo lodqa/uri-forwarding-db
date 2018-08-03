@@ -18,25 +18,15 @@ RUN apk update && \
 # is in the root directory and includes your version of Rails that you
 # want to run.
 WORKDIR /myapp
-COPY Gemfile /myapp
-COPY Gemfile.lock /myapp
+COPY Gemfile ./
+COPY Gemfile.lock ./
 
 RUN gem install bundler
 RUN bundle config build.nokogiri --use-system-libraries && \
     bundle install --jobs=4 --retry=10 --clean
 
 # Copy the source files. If the application is referenced with git url, it can run without volume mount.
-COPY app /myapp/app
-COPY bin /myapp/bin
-COPY config /myapp/config
-COPY db /myapp/db
-COPY lib /myapp/lib
-COPY log /myapp/log
-COPY public /myapp/public
-COPY tmp /myapp/tmp
-COPY vendor /myapp/vendor
-COPY config.ru /myapp
-COPY Rakefile /myapp
+COPY . ./
 
 COPY docker/docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
