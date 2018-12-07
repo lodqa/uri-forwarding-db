@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'wice_grid'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
