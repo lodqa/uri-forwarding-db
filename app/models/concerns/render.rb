@@ -31,8 +31,6 @@ module Render
 
   def get url
     req = Net::HTTP::Get.new(url)
-    # http://www.genecards.org/ requires something to the 'User-Agante' header.
-    req['User-Agent'] = 'something'
     http = Net::HTTP.new(url.hostname, url.port)
     http.use_ssl = (url.scheme == "https")
     response = http.request(req)
