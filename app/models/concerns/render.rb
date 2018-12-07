@@ -30,6 +30,8 @@ module Render
   end
 
   def get url
+    # Note 2018/12/07: Do not set User-Agent header.
+    # When setting the User-Agent header, http://www.genecards.org/ returns a HTML body for recaptcha and it can not be parsed.
     req = Net::HTTP::Get.new(url)
     http = Net::HTTP.new(url.hostname, url.port)
     http.use_ssl = (url.scheme == "https")
