@@ -33,7 +33,7 @@ docker-compose run --service-ports web
 
 And follow the instructions above to start the server.
 
-open http://localhost:8080
+open http://localhost:3000
 
 ## Deployment
 
