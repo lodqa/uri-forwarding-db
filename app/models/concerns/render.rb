@@ -42,7 +42,7 @@ module Render
     when Net::HTTPSuccess     then response
     when Net::HTTPRedirection then get URI.join(url, response['location'])
     else
-      raise ::Exceptions::RenderingError.new "Gateway Error: the sever returns '#{response.code} #{response.message}'"
+      raise ::Exceptions::GatewayError.new response
     end
   end
 end
