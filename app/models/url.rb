@@ -32,7 +32,6 @@ class Url
         url_replacement_pattern: @matcher.url_replacement_pattern,
       },
       replaced_url: @data[:url],
-      target_url: @error.url,
       error_message: @error.message
     }
   end
