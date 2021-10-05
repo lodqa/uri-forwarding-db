@@ -30,6 +30,7 @@ class Url
         name: @matcher.name,
         uri_pattern: @matcher.uri_pattern,
         url_replacement_pattern: @matcher.url_replacement_pattern,
+        xpath_to_media: @matcher.xpath_to_media
       },
       replaced_url: @data[:url],
       error_message: @error.message
