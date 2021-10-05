@@ -8,7 +8,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 6.0.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -19,7 +19,7 @@ gem 'jbuilder'
 # gem 'bcrypt'
 
 gem 'jquery-rails'
-gem 'wice_grid'
+gem 'wice_grid', github: 'kreintjes/wice_grid', branch: 'fix/all'
 gem 'bootstrap'
 
 # Use Capistrano for deployment
