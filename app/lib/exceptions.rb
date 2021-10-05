@@ -1,12 +1,13 @@
 module Exceptions
-  class PostProcessError < StandardError
+  class PostProcessError < StandardError; end
+
+  class GetCommandError < PostProcessError
     def initialize e
       super e
     end
   end
 
-  class GetCommandError < PostProcessError; end
-  class RenderingError < PostProcessError; end
+  class InvalidURIError < PostProcessError; end
 
   class GatewayError < PostProcessError
     def initialize(response)

@@ -18,14 +18,15 @@ module Render
     return nil if xpath_to_media.blank?
 
     url = URI.parse(url)
+
+    raise ::Exceptions::InvalidURIError.new unless url.is_a? URI::HTTP
+
     res = get url
 
     Rendering
       .from(res.body, xpath_to_media)
       &.to_absolute_url(url)
       &.to_hash
-  rescue URI::InvalidURIError => e
-    raise ::Exceptions::RenderingError.new e
   end
 
   def get url
