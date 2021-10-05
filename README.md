@@ -27,8 +27,8 @@ How to launch this application with Docker.
 Dockerfile already exists.
 
 ```sh
-docker-comose build
-docker-compose run --service-ports web
+docker comose build
+docker compose run --service-ports web
 ```
 
 And follow the instructions above to start the server.
