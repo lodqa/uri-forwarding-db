@@ -2,7 +2,7 @@
 
 ## Requirement
 * Ruby version 2.6
-* Ruby on Rails version 5.2.5
+* Ruby on Rails version 6.1.4
 
 ## Development
 
