@@ -21,6 +21,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'wice_grid', github: 'kreintjes/wice_grid', branch: 'fix/all'
 gem 'bootstrap'
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
