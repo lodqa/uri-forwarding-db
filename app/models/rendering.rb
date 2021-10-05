@@ -5,7 +5,7 @@ class Rendering
       doc = Nokogiri::HTML.parse html
       node = doc.at_xpath xpath_to_media
 
-      raise ::Exceptions::RenderingError.new nil, "Failed to parse the response body." unless node
+      raise ::Exceptions::RenderingError.new "Failed to parse the response body." unless node
 
       parse_node node
     end

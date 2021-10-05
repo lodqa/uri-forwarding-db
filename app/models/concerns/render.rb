@@ -25,7 +25,7 @@ module Render
       &.to_absolute_url(url)
       &.to_hash
   rescue URI::InvalidURIError => e
-    raise ::Exceptions::RenderingError.new url, e
+    raise ::Exceptions::RenderingError.new e
     [err, m, url]
   end
 
@@ -43,7 +43,7 @@ module Render
     when Net::HTTPSuccess     then response
     when Net::HTTPRedirection then get URI.join(url, response['location'])
     else
-      raise ::Exceptions::RenderingError.new url, "Gateway Error: the sever returns '#{response.code} #{response.message}' on url: #{url}"
+      raise ::Exceptions::RenderingError.new "Gateway Error: the sever returns '#{response.code} #{response.message}' on url: #{url}"
     end
   end
 end

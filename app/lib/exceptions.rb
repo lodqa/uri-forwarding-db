@@ -1,10 +1,7 @@
 module Exceptions
   class PostProcessError < StandardError
-    attr_reader :url
-
-    def initialize url, e
+    def initialize e
       super e
-      @url = url
     end
   end
 

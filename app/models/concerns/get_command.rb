@@ -32,6 +32,6 @@ module GetCommand
     res = URI.encode(Net::HTTP.get(url).chomp)
     str.sub(TOTAL_REGEXP, res)
   rescue SocketError => e
-    raise ::Exceptions::GetCommandError.new url, e
+    raise ::Exceptions::GetCommandError.new e
   end
 end
