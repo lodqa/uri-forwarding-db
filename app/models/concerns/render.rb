@@ -26,7 +26,6 @@ module Render
       &.to_hash
   rescue URI::InvalidURIError => e
     raise ::Exceptions::RenderingError.new e
-    [err, m, url]
   end
 
   def get url
