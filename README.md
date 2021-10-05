@@ -2,7 +2,7 @@
 
 ## Requirement
 * Ruby version 2.5
-* Ruby on Rails version 5.1.4
+* Ruby on Rails version 5.2.5
 
 ## Development
 
@@ -28,12 +28,12 @@ Dockerfile already exists.
 
 ```sh
 docker-comose build
-docker-compose run --service-ports web bash
+docker-compose run --service-ports web
 ```
 
 And follow the instructions above to start the server.
 
-open http://localhost
+open http://localhost:8080
 
 ## Deployment
 
