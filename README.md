@@ -1,7 +1,7 @@
 # README
 
 ## Requirement
-* Ruby version 2.6
+* Ruby version 3.0.2
 * Ruby on Rails version 6.1.4
 
 ## Development

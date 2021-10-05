@@ -219,7 +219,7 @@ DEPENDENCIES
   wice_grid!
 
 RUBY VERSION
-   ruby 2.6.8p205
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.28
