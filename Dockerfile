@@ -22,8 +22,7 @@ COPY Gemfile ./
 COPY Gemfile.lock ./
 
 RUN gem install bundler
-RUN bundle config build.nokogiri --use-system-libraries && \
-    bundle install --jobs=16 --retry=10
+RUN bundle install
 
 # Copy the source files. If the application is referenced with git url, it can run without volume mount.
 COPY . ./
