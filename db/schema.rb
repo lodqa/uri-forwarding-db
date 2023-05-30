@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2018_03_14_062957) do
-
+ActiveRecord::Schema[7.0].define(version: 2018_03_14_062957) do
   create_table "matchers", force: :cascade do |t|
     t.string "uri_pattern", null: false
     t.string "url_replacement_pattern", null: false
     t.string "name", null: false
     t.integer "priority", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "xpath_to_media", default: "", null: false
     t.string "url_replacement_pattern_for_media", default: "", null: false
   end
