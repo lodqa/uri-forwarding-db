@@ -6,16 +6,9 @@
 
 ## Development
 
-### Database initialization
-
 ```sh
-bin/rails db:migrate
-bin/rails db:seed
-```
-
-### Start the server
-
-```sh
+bundle install
+bin/rails db:prepare
 bin/rails s -b 0.0.0.0
 ```
 
