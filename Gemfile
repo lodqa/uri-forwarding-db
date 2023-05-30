@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 7.0.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -16,7 +16,7 @@ gem 'sass-rails'
 gem 'jbuilder'
 
 gem 'jquery-rails'
-gem 'wice_grid', github: 'kreintjes/wice_grid', branch: 'fix/all'
+gem 'wice_grid', '~> 4.1', github: 'ledsun/wice_grid', branch: 'rails_7'
 gem 'bootstrap'
 gem 'puma'
 

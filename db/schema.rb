@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_14_062957) do
+ActiveRecord::Schema[6.1].define(version: 2018_03_14_062957) do
 
   create_table "matchers", force: :cascade do |t|
     t.string "uri_pattern", null: false
