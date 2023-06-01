@@ -78,7 +78,6 @@ GEM
       tzinfo (~> 2.0)
     autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
-    bindex (0.8.1)
     bootstrap (5.2.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
@@ -205,11 +204,6 @@ GEM
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    web-console (4.2.0)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -226,7 +220,6 @@ DEPENDENCIES
   rails (~> 7.0.5)
   sass-rails
   sqlite3
-  web-console
   wice_grid (~> 4.1)!
 
 RUBY VERSION

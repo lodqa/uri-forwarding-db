@@ -19,8 +19,3 @@ gem 'jquery-rails'
 gem 'wice_grid', '~> 4.1', github: 'ledsun/wice_grid', branch: 'rails_7'
 gem 'bootstrap'
 gem 'puma'
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-end
